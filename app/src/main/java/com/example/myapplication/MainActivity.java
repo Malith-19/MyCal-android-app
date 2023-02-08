@@ -7,12 +7,13 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.example.myapplication.Evaluator;
 
 
 public class MainActivity extends AppCompatActivity {
     private String inputLine = "";
+    private Evaluator evaluator = new Evaluator();
 
 
     @Override
@@ -150,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //create a new intent to open the second activity
-                inputLine += "+";
+                inputLine += " + ";
                 display.setText(inputLine);
                 System.out.println("Button + clicked");
             }
@@ -162,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //create a new intent to open the second activity
-                inputLine += "-";
+                inputLine += " - ";
                 display.setText(inputLine);
                 System.out.println("Button - clicked");
             }
@@ -174,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //create a new intent to open the second activity
-                inputLine += "x";
+                inputLine += " x ";
                 display.setText(inputLine);
                 System.out.println("Button * clicked");
             }
@@ -186,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //create a new intent to open the second activity
-                inputLine += "/";
+                inputLine += " / ";
                 display.setText(inputLine);
                 System.out.println("Button / clicked");
             }
@@ -224,12 +225,20 @@ public class MainActivity extends AppCompatActivity {
 
 //                double result = cal.evaluate(inputLine);
 //                display.setText(String.valueOf(result));
+
+                double result = evaluator.evaluate(inputLine);
+                if(result == -1234465567890.0){
+                    display.setText("Syntax Error");
+                }else{
+                display.setText(String.valueOf(result));
                 inputLine = "";
+                }
 
 
             }
         });
 
+        // this function to handle the touch events occur in other areas except the buttons.
         ConstraintLayout parentLayout = findViewById(R.id.parent_layout);
         parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
