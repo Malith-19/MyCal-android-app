@@ -244,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // handle the touch event
+                System.out.println("Parent layout clicked");
             }
         });
 
