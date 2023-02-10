@@ -217,7 +217,7 @@
         android:id="@+id/inputDisplay"
         android:layout_width="405dp"
         android:layout_height="105dp"
-        android:layout_marginLeft="5sp"
+        android:layout_marginLeft="7sp"
         android:background="#128CE3"
         android:outlineProvider="bounds"
         android:textColor="#F3F0F0"

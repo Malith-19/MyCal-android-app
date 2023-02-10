@@ -203,8 +203,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //create a new intent to open the second activity
-                inputLine = inputLine.substring(0, inputLine.length() - 1);
-                display.setText(inputLine);
+                if (inputLine.length() > 0){
+                    inputLine = inputLine.substring(0, inputLine.length() - 1);
+                    display.setText(inputLine);
+                }
+
                 System.out.println("Button dlt clicked");
             }
         });
