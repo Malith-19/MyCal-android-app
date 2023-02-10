@@ -236,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
                 double result = evaluator.evaluate(inputLine);
                 if(result == -1234465567890.0){
                     display.setText("Syntax Error");
+                    inputLine = "";
                 }else{
                 display.setText(String.valueOf(result));
                 inputLine = "";
